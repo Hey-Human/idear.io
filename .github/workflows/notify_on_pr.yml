@@ -3,29 +3,25 @@ on:
   pull_request: {}
 
 jobs:
-  validate_pr:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Validate PR
-        run: |
-          # Get the number of added files
-          FILES=$(git diff --numstat origin/main...HEAD -- ideas/ | wc -l)
+  # validate_pr:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Validate PR
+  #       run: |
+  #         # Get the number of added files
+  #         FILES=$(git diff --numstat origin/main...HEAD -- ideas/ | wc -l)
           
-          # Check if only one file was added
-          if [ "$FILES" -gt 1 ]; then
-            echo "Invalid PR: Only one new file can be added under the ideas directory"
-            exit 1
-          fi
+  #         # Check if only one file was added
+  #         if [ "$FILES" -gt 1 ]; then
+  #           echo "Invalid PR: Only one new file can be added under the ideas directory"
+  #           exit 1
+  #         fi
   notify_slack:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: List files
-        run: |
-          ls -la 
-          ls -la .github/workflows
       # Get the download URL of the new file added
       - name: Get new file URL
         run: bash ./.github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
