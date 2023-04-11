@@ -20,13 +20,15 @@ jobs:
   notify_slack:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: List files
         run: |
-          cd ..
-          ls -la
+          ls -la 
+          ls -la .github/workflows
       # Get the download URL of the new file added
       - name: Get new file URL
-        run: $HOME/./github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
+        run: bash ./.github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
         id: get-new-file-url
 
       # Send a message to Slack with the new file content
@@ -35,11 +37,8 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName
-          message: |
-            New PR created: ${{ github.event.pull_request.title }}
-            ```
-            ${{ steps.get_new_file_content.outputs.file_content }}
-            ```
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          SLACK_MESSAGE: ${{ steps.get-new-file-url.outputs.file_content }}

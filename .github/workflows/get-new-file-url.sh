@@ -7,13 +7,16 @@ commit_hash=$1
 github_token=$2
 
 # Get the download URL of the new file added
-file_url=$(curl -s -H "Authorization: token ${github_token}" https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${commit_hash} | jq -r '.files[] | select(.filename | startswith("ideas/")) | .raw_url')
+file_url=$(curl -s -H "Authorization: token ${github_token}" https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${commit_hash} | jq -r '.files[] | select(.filename | startswith("ideas"))')
+echo ${file_url}
 
 # Export the file URL as an output
 echo "::set-output name=file_url::${file_url}"
 
 # Get the content of the new file added
-file_content=$(curl -sL "${file_url}" | base64)
+file_content=$(curl -sL "${file_url}" | sed -e 's/<[^>]*>//g' 2>/dev/null)
+
+echo ${file_content}
 
 # Export the file content as an output
 echo "::set-output name=file_content::${file_content}"
