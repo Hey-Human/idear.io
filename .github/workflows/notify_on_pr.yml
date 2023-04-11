@@ -22,38 +22,24 @@ jobs:
     runs-on: ubuntu-latest
     needs: "validate_pr"
     steps:
-      - name: Send custom JSON data to Slack workflow
-        id: slack
-        uses: slackapi/slack-github-action@v1.23.0
+      - name: List files
+        run: ls -la
+      # Get the download URL of the new file added
+      - name: Get new file URL
+        run: ./.github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
+        id: get-new-file-url
+
+      # Send a message to Slack with the new file content
+      - name: Send message to Slack
+        uses: rtCamp/action-slack-notify@v2.1.2
         with:
-          # For posting a rich message using Block Kit
-          payload: |
-            {
-              "text": "New PR created: ${{ github.event.pull_request.title }}",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "New PR created: ${{ github.event.pull_request.title }}"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*New idea:*"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "```$($(curl -s -H \"Authorization: token ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/contents/ideas | jq -r '.[] | select(.path == \"ideas/<new-file>\") | .download_url') | base64 --decode)```"
-                  }
-                }
-              ]
-            }
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName
+          message: |
+            New PR created: ${{ github.event.pull_request.title }}
+            ```
+            ${{ steps.get_new_file_content.outputs.file_content }}
+            ```
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
