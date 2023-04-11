@@ -20,13 +20,15 @@ jobs:
   notify_slack:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: List files
         run: |
-          cd ..
-          ls -la
+          ls -la 
+          ls -la .github/workflows
       # Get the download URL of the new file added
       - name: Get new file URL
-        run: $HOME/./github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
+        run: bash ./.github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
         id: get-new-file-url
 
       # Send a message to Slack with the new file content
