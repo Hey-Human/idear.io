@@ -1,0 +1,25 @@
+name: Notify Slack on PR Creation
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  notify_slack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install @slack/webhook
+      - name: Send message to Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          npm run slack-message
+          
+      - name: Create npm script for slack-message
+        run: |
+          echo "npx slack-webhook --url $SLACK_WEBHOOK_URL --text 'New PR created: $PR_TITLE ($PR_URL)'" > slack-message
+        shell: bash
