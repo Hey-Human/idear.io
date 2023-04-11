@@ -4,8 +4,23 @@ on:
     types: [opened]
 
 jobs:
+  validate_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Validate PR
+        run: |
+          # Get the number of added files
+          FILES=$(git diff --numstat origin/main...HEAD -- ideas/ | wc -l)
+          
+          # Check if only one file was added
+          if [ "$FILES" -gt 1 ]; then
+            echo "Invalid PR: Only one new file can be added under the ideas directory"
+            exit 1
+          fi
   notify_slack:
     runs-on: ubuntu-latest
+    needs: "validate_pr"
     steps:
       - name: Send custom JSON data to Slack workflow
         id: slack
@@ -21,6 +36,20 @@ jobs:
                   "text": {
                     "type": "mrkdwn",
                     "text": "New PR created: ${{ github.event.pull_request.title }}"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*New idea:*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "```$($(curl -s -H \"Authorization: token ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/contents/ideas | jq -r '.[] | select(.path == \"ideas/<new-file>\") | .download_url') | base64 --decode)```"
                   }
                 }
               ]
