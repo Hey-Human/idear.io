@@ -6,12 +6,13 @@ jobs:
   validate_pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Validate PR
         run: |
           # Get the number of added files
           FILES=$(git diff --numstat origin/main...HEAD -- ideas/ | wc -l)
-          
+          echo $FILES
           # Check if only one file was added
           if [ "$FILES" -gt 1 ]; then
             echo "Invalid PR: Only one new file can be added under the ideas directory"
@@ -20,13 +21,11 @@ jobs:
   notify_slack:
     runs-on: ubuntu-latest
     steps:
-      - name: List files
-        run: |
-          cd ..
-          ls -la
+      - name: Checkout repository
+        uses: actions/checkout@v2
       # Get the download URL of the new file added
       - name: Get new file URL
-        run: $HOME/./github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
+        run: bash ./.github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
         id: get-new-file-url
 
       # Send a message to Slack with the new file content
@@ -34,12 +33,10 @@ jobs:
         uses: rtCamp/action-slack-notify@v2.1.2
         with:
           status: ${{ job.status }}
-          fields: repo,message,commit,author,action,eventName
-          message: |
-            New PR created: ${{ github.event.pull_request.title }}
-            ```
-            ${{ steps.get_new_file_content.outputs.file_content }}
-            ```
+          fields: message,author
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          SLACK_MESSAGE: ${{ steps.get-new-file-url.outputs.file_content }}
+          MSG_MINIMAL: true
