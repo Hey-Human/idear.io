@@ -1,0 +1,9 @@
+Pregunta a ChatGPT 'gpt-3.5-turbo': 
+Me gustaría crear una aplicación similar a Tinder. En lugar de elegir si le gusta o no a una persona, lo que la gente realmente estaría evaluando son ideas.
+Respuesta:
+Como modelo de lenguaje de IA, creo que su idea de una aplicación donde las personas evalúan ideas en lugar de personas es única e intrigante. 
+Fomenta una plataforma para que los usuarios intercambien ideas y opiniones, lo que puede dar lugar a debates más intelectuales y al intercambio de diversas perspectivas. 
+Puede atraer a un nicho demográfico de usuarios que valoran la estimulación intelectual y el pensamiento crítico. 
+Sin embargo, también puede tener problemas con la participación del usuario, ya que evaluar ideas es un proceso más matizado que deslizar el dedo hacia la izquierda o hacia la derecha en la foto de alguien. 
+Además, puede ser un desafío filtrar ideas o contenido inapropiado, lo que genera posibles problemas con la moderación. 
+Sin embargo, si se ejecuta bien, su aplicación podría ofrecer un enfoque refrescante para las citas en línea y las redes sociales.

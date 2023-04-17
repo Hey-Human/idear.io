@@ -40,3 +40,23 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
           SLACK_MESSAGE: ${{ steps.get-new-file-url.outputs.file_content }}
           MSG_MINIMAL: true
+  get_chatgpt_feedback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+      - name: Get ChatGPT feedback
+        run: bash ./scripts/ask_chat_gpt.sh
+        id: get-chatgpt-feedback
+      - name: Send message to Slack
+        uses: rtCamp/action-slack-notify@v2.1.2
+        with:
+          status: ${{ job.status }}
+          fields: message,author
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLACK_MESSAGE: ${{ steps.get-chatgpt-feedback.outputs.chatgpt_feedback }}
+          MSG_MINIMAL: true
