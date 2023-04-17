@@ -1,11 +1,10 @@
 # idear.io
-**Importante: se busca a quién quiera sumarse. Primer tarea será un webhook que manda mensaje a un slack channel**
+**Importante: se busca a quién quiera sumarse.**
 
 Idear.io (ideario) es un "Conjunto de ideas" y busca involucrarnos con aquellas que más nos gusten.
 
 ## Qué diferencia a idear.io?
-En pocas palabras, idear.io busca ser un repositorio de ideas (ideario) pero no solo como repositorio, sino que también intenta involucrar al resto de la empresa en cada una de las ideas. Lo podrá hacer mediante una combinación de webhooks y actions que informará, buscará feedback y participación de nuevos integrantes a través de slack.
-
+En pocas palabras, idear.io busca ser un repositorio de ideas (ideario) pero no solo como repositorio, sino que también intenta involucrar al resto de las personas en cada una de las ideas.
 
 ## Cómo agregar una idea?
 
