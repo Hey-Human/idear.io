@@ -10,4 +10,3 @@ En pocas palabras, idear.io busca ser un repositorio de ideas (ideario) pero no 
 
 Copiar el IDEARIO_TEMPLATE.md y renombrar la copia con el nombre SUIDEA.md y situarla en el directorio `ideas`. Una vez terminada su idea, crear un PR con SUIDEA.md. 
 
-**Importante: Aún no se encuentra implementado el webhook de la creación de un PR**
