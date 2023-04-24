@@ -1,4 +1,5 @@
 # idear.io
+Date una vuelta por el listado de ideas https://tres-caras.github.io/idear.io/
 **Importante: se busca a quién quiera sumarse.**
 
 Idear.io (ideario) es un "Conjunto de ideas" y busca involucrarnos con aquellas que más nos gusten.
