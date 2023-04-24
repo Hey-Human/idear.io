@@ -57,3 +57,23 @@ title: Lista de ideas
 <div class="github-link">
   <a href="https://github.com/deptagency-dar/idear.io">Ver repositorio en GitHub</a>
 </div>
+
+<button id="add-idea-button">Agregar idea</button>
+
+<div id="add-idea-form" style="display: none;">
+  <h2>Agregar una nueva idea</h2>
+  <form action="/add-idea" method="POST">
+    <label for="idea-plan">Plan de idea:</label><br>
+    <input type="text" id="idea-plan" name="idea-plan"><br>
+    <button type="submit">Añadir a la lista de espera</button>
+  </form>
+</div>
+
+<script>
+  var addIdeaButton = document.getElementById("add-idea-button");
+  var addIdeaForm = document.getElementById("add-idea-form");
+
+  addIdeaButton.addEventListener("click", function() {
+    addIdeaForm.style.display = "block";
+  });
+</script>
