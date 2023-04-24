@@ -58,14 +58,14 @@ title: Lista de ideas
   <a href="https://github.com/deptagency-dar/idear.io">Ver repositorio en GitHub</a>
 </div>
 
-<button id="add-idea-button">Agregar idea</button>
+<button id="add-idea-button" style="background-color: #007bff; color: white; border: none; border-radius: 5px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Agregar idea</button>>
 
-<div id="add-idea-form" style="display: none;">
-  <h2>Agregar una nueva idea</h2>
+<div id="add-idea-form" style="display: none; background-color: white; border-radius: 5px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
+  <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">Agregar una nueva idea</h2>
   <form action="/add-idea" method="POST">
-    <label for="idea-plan">Plan de idea:</label><br>
-    <input type="text" id="idea-plan" name="idea-plan"><br>
-    <button type="submit">Añadir a la lista de espera</button>
+    <label for="idea-plan" style="font-size: 16px; font-weight: bold;">Plan de idea:</label><br>
+    <input type="text" id="idea-plan" name="idea-plan" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 20px;"><br>
+    <button type="submit" style="background-color: #007bff; color: white; border: none; border-radius: 5px; padding: 10px 20px; font-size: 16px; cursor: pointer;">Añadir a la lista de espera</button>
   </form>
 </div>
 
