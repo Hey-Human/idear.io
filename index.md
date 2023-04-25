@@ -45,7 +45,7 @@ title: Idear.io
 </ul>
 
 <div class="github-link">
-  <a href="https://github.com/deptagency-dar/idear.io">Ver repositorio en GitHub</a>
+  <a href="https://github.com/tres-caras/idear.io">Ver repositorio en GitHub</a>
   <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github">
   </svg>
 </div>
