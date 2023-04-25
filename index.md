@@ -34,11 +34,7 @@ title: Idear.io
 
 # Whitepaper
 
-{% if site.readme %}
-  <div class="readme-content">
-    {{ site.readme.content }}
-  </div>
-{% endif %}
+{% include readme.html %}
 
 <ul>
   {% for file in site.static_files %}
