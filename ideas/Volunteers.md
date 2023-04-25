@@ -1,5 +1,3 @@
----
-
 # 💡Idea Plan💡
 
 ## Complete each item:
