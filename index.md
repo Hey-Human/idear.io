@@ -4,10 +4,10 @@ title: Idear.io
 ---
 
 <style>
-  body {
+    body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    color: #24292e;
-    background-color: #f6f8fa;
+    color: #fff;
+    background-color: #0d1117; /* Fondo oscuro */
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -15,9 +15,12 @@ title: Idear.io
 
   h1 {
     font-size: 2.5rem;
-    color: #2c3e50;
+    color: #58a6ff; /* Color degradado */
     text-align: center;
     margin-top: 40px;
+    background-image: linear-gradient(90deg, #58a6ff, #bc9cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   ul {
@@ -69,6 +72,10 @@ title: Idear.io
     flex-wrap: wrap;
     justify-content: center;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start; /* Alinea todos los elementos en la parte superior */
   }
 
   ul li {
@@ -79,22 +86,47 @@ title: Idear.io
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
     text-align: center;
+    min-height: 100px; /* Establece la altura mínima de cada elemento li */
+    max-height: 100px; /* Establece la altura máxima de cada elemento li */
+    overflow: hidden; /* Oculta el contenido que excede la altura máxima */
+    height: 100px; /* Establece la altura de cada elemento li */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura */
+    margin: 15px 15px 15px 15px; /* Asegura que todos los márgenes sean iguales */
+  }
+
+  ul li:first-child {
+    margin-top: 4px;
   }
 
   ul li:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
-
-  a {
-    color: #0366d6;
-    text-decoration: none;
-    font-weight: bold;
+  ul li a {
+    font-size: 1rem; /* Ajusta el tamaño de la fuente según tus preferencias */
+    line-height: 1.5; /* Ajusta el espacio entre líneas según tus preferencias */
   }
 
   a:hover {
     text-decoration: underline;
   }
+  
+  .twitter-share-button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.twitter-share-button:hover {
+  background-color: #0d8bf0;
+  cursor: pointer;
+}
 </style>
 
 <h1>Whitepaper</h1>
@@ -111,7 +143,10 @@ title: Idear.io
 <ul>
   {% for file in site.static_files %}
     {% if file.path contains 'ideas/' and file.path contains '.md' %}
-      <li><a href="{{ site.baseurl }}{{ file.path | replace: '.md', '.html' }}">{{ file.path | split: '/' | last | replace: '.md', '' }}</a></li>
+      <li>
+        <a href="{{ site.baseurl }}{{ file.path | replace: '.md', '.html' }}">{{ file.path | split: '/' | last | replace: '.md', '' }}</a>
+        <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ site.baseurl }}{{ file.path | replace: '.md', '.html' }}&text={{ file.path | split: '/' | last | replace: '.md', '' }}%20on%20Idear.io" target="_blank" rel="noopener" class="twitter-share-button"><i class="fab fa-twitter"></i> Share with Twitter</a>
+      </li>
     {% endif %}
   {% endfor %}
 </ul>
