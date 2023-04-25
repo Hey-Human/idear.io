@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Lista de ideas y README
+title: Idear.io
 ---
 
 <style>
@@ -32,7 +32,7 @@ title: Lista de ideas y README
   }
 </style>
 
-# Lista de ideas y README
+# Whitepaper
 
 {% if site.readme %}
   <div class="readme-content">
