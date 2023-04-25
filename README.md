@@ -1,5 +1,3 @@
-# idear.io: Whitepaper
-
 ## Introduction
 
 Idear.io is a groundbreaking platform aimed at connecting people with the most relevant and meaningful ideas in real-time. The platform combines elements of Twitter and Tinder, offering a unique and interactive experience where users can discover and engage with high-impact ideas. This whitepaper provides a detailed insight into the solution Idear.io presents for fostering the generation and dissemination of ideas in our society.
