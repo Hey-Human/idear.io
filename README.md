@@ -1,5 +1,5 @@
 # Idear.io
-
+![idear.io](./idear-io-icon.png)
 ## Descripción
 
 Idear.io es una plataforma que facilita la generación y gestión de ideas para proyectos. Con Idear.io, podrás crear, compartir y discutir ideas en tiempo real con tu equipo, mejorando la colaboración y fomentando la creatividad.
