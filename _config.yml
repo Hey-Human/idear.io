@@ -1,2 +1,7 @@
 readme: /README.md
 repository: Hey-Human/idear.io
+title: "Idear.io | Innovación y Talento"
+description: "Descubre idear.io, la plataforma de innovación y talento"
+url: "https://hey-human.github.io/idear.io/"
+plugins:
+  - jekyll-seo-tag
