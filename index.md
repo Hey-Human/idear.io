@@ -190,6 +190,16 @@ footer {
     color: #bc9cff;
     text-decoration: underline;
   }
+
+  .footer-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-item i {
+    margin-right: 5px;
+  }
+
 </style>
 
 {% include readme.html %}
@@ -213,11 +223,12 @@ footer {
 </ul>
 
 <!-- Footer -->
+<!-- Footer -->
 <footer>
   <div class="footer-content">
     <p>&copy; {{ 'now' | date: "%Y" }} Hey, Human! | Todos los derechos reservados.</p>
-    <p><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">info@heyhuman.org</a></p>
-    <p><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
-    <p><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
+    <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">info@heyhuman.org</a></p>
+    <p class="footer-item"><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
+    <p class="footer-item"><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
   </div>
 </footer>
