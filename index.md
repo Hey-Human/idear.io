@@ -161,6 +161,35 @@ title: Ideario
   background-color: #0d8bf0;
   cursor: pointer;
 }
+
+/* Footer */
+
+footer {
+    background-color: #0d1117;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .footer-content p {
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  .footer-content i {
+    color: #58a6ff;
+    margin-right: 5px;
+  }
+
+  .footer-content a {
+    color: #58a6ff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-content a:hover {
+    color: #bc9cff;
+    text-decoration: underline;
+  }
 </style>
 
 <h1>Whitepaper</h1>
@@ -184,3 +213,13 @@ title: Ideario
     {% endif %}
   {% endfor %}
 </ul>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; {{ 'now' | date: "%Y" }} Hey, Human! | Todos los derechos reservados.</p>
+    <p><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">info@heyhuman.org</a></p>
+    <p><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
+    <p><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
+  </div>
+</footer>
