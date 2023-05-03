@@ -192,8 +192,6 @@ footer {
   }
 </style>
 
-<h1>Whitepaper</h1>
-
 {% include readme.html %}
 
 <div class="github-link">
@@ -208,7 +206,7 @@ footer {
     {% if file.path contains 'ideas/' and file.path contains '.md' %}
       <li>
         <a href="{{ site.baseurl }}{{ file.path | replace: '.md', '.html' }}">{{ file.path | split: '/' | last | replace: '.md', '' }}</a>
-        <a href="https://twitter.com/intent/tweet?url=https://tres-caras.github.io/idear.io{{ file.path | replace: '.md', '.html' }}&text={{ file.path | split: '/' | last | replace: '.md', '' }}%20on%20Idear.io" target="_blank" rel="noopener" class="twitter-share-button"><i class="fab fa-twitter"></i> Share with Twitter</a>
+        <a href="https://twitter.com/intent/tweet?url=https://hey-human.github.io/idear.io{{ file.path | replace: '.md', '.html' }}&text={{ file.path | split: '/' | last | replace: '.md', '' }}%20on%20Idear.io" target="_blank" rel="noopener" class="twitter-share-button"><i class="fab fa-twitter"></i> Share with Twitter</a>
       </li>
     {% endif %}
   {% endfor %}
