@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Idear.io
+title: Ideario
 ---
 
 <style>
@@ -134,7 +134,7 @@ title: Idear.io
 {% include readme.html %}
 
 <div class="github-link">
-  <a href="https://github.com/tres-caras/idear.io">GitHub Repo</a>
+  <a href="https://github.com/Hey-Human/idear.io">GitHub Repo</a>
   <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github">
   </svg>
 </div>
