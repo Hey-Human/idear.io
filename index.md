@@ -92,6 +92,8 @@ title: Ideario
     height: 100px; /* Establece la altura de cada elemento li */
     overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura */
     margin: 15px 15px 15px 15px; /* Asegura que todos los márgenes sean iguales */
+    color: #faf0f2;
+    background-color: #4ecb78;
   }
 
   ul li:first-child {
@@ -105,6 +107,38 @@ title: Ideario
   ul li a {
     font-size: 1rem; /* Ajusta el tamaño de la fuente según tus preferencias */
     line-height: 1.5; /* Ajusta el espacio entre líneas según tus preferencias */
+  }
+  
+  ol {
+    list-style-type: decimal;
+    margin: 0;
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  ol li {
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #faf0f2;
+    background-color: #4ecb78;
+  }
+
+  ol li:first-child {
+    margin-top: 4px;
+  }
+
+  ol li a {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #0366d6;
+    text-decoration: none;
+  }
+
+  ol li a:hover {
+    text-decoration: underline;
   }
 
   a:hover {
