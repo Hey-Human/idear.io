@@ -237,7 +237,7 @@ footer {
   <div class="footer-content">
     <p>&copy; {{ 'now' | date: "%Y" }} Hey, Human! | Todos los derechos reservados.</p>
     <p class="footer-item"><a href="https://github.com/Hey-Human/idear.io"><i class="fab fa-github"></i> Idear.io Repository</a></p>
-    <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">info@heyhuman.org</a></p>
+    <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">Mail me!</a></p>
     <p class="footer-item"><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
     <p class="footer-item"><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
   </div>
