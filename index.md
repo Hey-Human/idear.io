@@ -216,13 +216,7 @@ footer {
 {% include readme.html %}
 
 <div class="image-container">
-  <img src="/assets/images/ideario_how_to.png" alt="Descripción alternativa">
-</div>
-
-<div class="github-link">
-    <p class="footer-item"><a href="https://github.com/Hey-Human/idear.ion"><i class="fab fa-github"></i> Idear.io Repository</a></p>
-  <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github">
-  </svg>
+   <img src="{{ site.baseurl }}/assets/images/ideario_how_to.png" alt="Cómo funciona?">
 </div>
 
 <h2>Checkout some ideas</h2>
@@ -242,6 +236,7 @@ footer {
 <footer>
   <div class="footer-content">
     <p>&copy; {{ 'now' | date: "%Y" }} Hey, Human! | Todos los derechos reservados.</p>
+    <p class="footer-item"><a href="https://github.com/Hey-Human/idear.ion"><i class="fab fa-github"></i> Idear.io Repository</a></p>
     <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">info@heyhuman.org</a></p>
     <p class="footer-item"><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
     <p class="footer-item"><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
