@@ -200,12 +200,27 @@ footer {
     margin-right: 5px;
   }
 
+  /* How to image container */
+  .image-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente blanco */
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 80%; /* Ajusta el ancho máximo según tus preferencias */
+  }
 </style>
 
 {% include readme.html %}
 
+<div class="image-container">
+  <img src="/assets/images/ideario_how_to.png" alt="Descripción alternativa">
+</div>
+
 <div class="github-link">
-  <a href="https://github.com/Hey-Human/idear.io">GitHub Repo</a>
+    <p class="footer-item"><a href="https://github.com/Hey-Human/idear.ion"><i class="fab fa-github"></i> Idear.io Repository</a></p>
   <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" data-view-component="true" class="octicon octicon-mark-github">
   </svg>
 </div>
