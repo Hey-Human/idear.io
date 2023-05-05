@@ -17,8 +17,8 @@ jobs:
     - name: Get new idea URL
       id: get-idea-url
       run: |
-        chmod +x .github/workflows/get-new-file-url.sh
-        IDEA_URL=$(./.github/workflows/get-new-file-url.sh)
+        chmod +x .github/workflows/get-new-file-url-modified.sh
+        IDEA_URL=$(./.github/workflows/get-new-file-url-modified.sh)
         echo "idea_url=$IDEA_URL" >> $GITHUB_ENV
 
     - name: Send message to Slack
@@ -32,10 +32,10 @@ jobs:
 
     - name: Post a tweet
       if: steps.get-idea-url.outputs.idea_url != ''
-      uses: redhat-actions/tweet-to-twitter@v1
+      uses: ethomson/send-tweet-action@v1
       with:
         status: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
-        consumer_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-        consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-        access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-        access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+        access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
