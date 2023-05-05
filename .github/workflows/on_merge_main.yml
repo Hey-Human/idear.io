@@ -1,0 +1,41 @@
+name: Notify on PR Merged
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  notify:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Get new idea URL
+      id: get-idea-url
+      run: |
+        chmod +x .github/workflows/get-new-file-url.sh
+        IDEA_URL=$(./.github/workflows/get-new-file-url.sh)
+        echo "idea_url=$IDEA_URL" >> $GITHUB_ENV
+
+    - name: Send message to Slack
+      if: steps.get-idea-url.outputs.idea_url != ''
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        text: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Post a tweet
+      if: steps.get-idea-url.outputs.idea_url != ''
+      uses: redhat-actions/tweet-to-twitter@v1
+      with:
+        status: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
+        consumer_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+        access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
