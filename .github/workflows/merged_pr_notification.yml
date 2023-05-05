@@ -33,7 +33,8 @@ jobs:
         uses: ethomson/send-tweet-action@v1
         with:
           status: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
-          consumer_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-          consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-          access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+
