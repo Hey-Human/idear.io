@@ -1,5 +1,5 @@
 # [Idear.io](https://github.com/Hey-Human/idear.io)
-![idear.io](./idear-io-icon.png)
+![idear.io](./ba425433-8a64-409e-9ffb-667e25e9a4dd.png)
 ## Descripción
 
 Idear.io es una plataforma que facilita la generación y gestión de ideas para proyectos. Con Idear.io, podrás crear, compartir y discutir ideas en tiempo real con tu equipo, mejorando la colaboración y fomentando la creatividad.
