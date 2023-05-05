@@ -10,7 +10,7 @@ github_token=$2
 file_name=$(curl -s -H "Authorization: token ${github_token}" https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${commit_hash} | jq -r '.files[] | select(.filename | startswith("ideas")) | .filename')
 
 # Generate the URL of the new idea
-base_url="https://hey-human.github.io/idear.io/ideas"
+base_url="https://hey-human.github.io/idear.io"
 idea_url="${base_url}/${file_name}"
 idea_url="${idea_url%.*}.html"
 
