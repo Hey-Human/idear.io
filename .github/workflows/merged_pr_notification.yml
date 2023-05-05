@@ -30,11 +30,13 @@ jobs:
           MSG_MINIMAL: true
 
       - name: Post a tweet
-        uses: ethomson/send-tweet-action@v1
+        if: steps.get-idea-url.outputs.idea_url != 'https://hey-human.github.io/idear.html'
+        uses: redhat-actions/tweet-to-twitter@v1
         with:
           status: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
-          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          consumer_key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          consumer_secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+
 
