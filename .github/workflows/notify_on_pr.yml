@@ -1,42 +1,41 @@
-name: Notify Slack on PR Creation
+name: Notify on PR Merged
+
 on:
-  pull_request: {}
+  pull_request:
+    types:
+      - closed
 
 jobs:
-  validate_pr:
+  notify:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Validate PR
-        run: |
-          # Get the number of added files
-          FILES=$(git diff --numstat origin/main...HEAD -- ideas/ | wc -l)
-          echo $FILES
-          # Check if only one file was added
-          if [ "$FILES" -gt 1 ]; then
-            echo "Invalid PR: Only one new file can be added under the ideas directory"
-            exit 1
-          fi
-  notify_slack:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      # Get the download URL of the new file added
-      - name: Get new file URL
-        run: bash ./.github/workflows/get-new-file-url.sh ${{ github.event.pull_request.head.sha }} ${{ secrets.GITHUB_TOKEN }}
-        id: get-new-file-url
 
-      # Send a message to Slack with the new file content
-      - name: Send message to Slack
-        uses: rtCamp/action-slack-notify@v2.1.2
-        with:
-          status: ${{ job.status }}
-          fields: message,author
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK}}
-          SLACK_MESSAGE: ${{ steps.get-new-file-url.outputs.file_content }}
-          MSG_MINIMAL: true
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Get new idea URL
+      id: get-idea-url
+      run: |
+        chmod +x .github/workflows/get-new-file-url-modified.sh
+        IDEA_URL=$(./.github/workflows/get-new-file-url-modified.sh)
+        echo "idea_url=$IDEA_URL" >> $GITHUB_ENV
+
+    - name: Send message to Slack
+      if: steps.get-idea-url.outputs.idea_url != ''
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        text: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    - name: Post a tweet
+      if: steps.get-idea-url.outputs.idea_url != ''
+      uses: ethomson/send-tweet-action@v1
+      with:
+        status: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
+        consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+        consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+        access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+        access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
