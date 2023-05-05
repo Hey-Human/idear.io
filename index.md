@@ -64,6 +64,7 @@ title: Ideario
     color: #2c3e50;
     text-align: center;
     margin-top: 40px;
+    background-color: white;
   }
 
   ul {
@@ -214,7 +215,7 @@ footer {
 </style>
 
 {% include readme.html %}
-
+<h2> Desde GitHub a la web
 <div class="image-container">
    <img src="{{ site.baseurl }}/assets/images/ideario_how_to.png" alt="Cómo funciona?">
 </div>
