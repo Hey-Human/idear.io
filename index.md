@@ -61,10 +61,14 @@ title: Ideario
 
   h2 {
     font-size: 2rem;
-    color: #2c3e50;
+    color: #ffffff;
     text-align: center;
     margin-top: 40px;
-  }
+    background-image: linear-gradient(to right, #48e0a4, #37b08d);
+    padding: 15px;
+    border-radius: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
   ul {
     list-style-type: none;
@@ -80,9 +84,9 @@ title: Ideario
 
   ul li {
     margin: 15px;
-    background-color: #fff;
+    background-image: linear-gradient(to right, #48e0a4, #37b08d);
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
     text-align: center;
@@ -92,9 +96,10 @@ title: Ideario
     height: 100px; /* Establece la altura de cada elemento li */
     overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura */
     margin: 15px 15px 15px 15px; /* Asegura que todos los márgenes sean iguales */
-    color: #faf0f2;
-    background-color: #4ecb78;
-  }
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 
   ul li:first-child {
     margin-top: 4px;
@@ -116,15 +121,15 @@ title: Ideario
     margin-bottom: 20px;
   }
 
-  ol li {
-    margin: 10px 0;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #faf0f2;
-    background-color: #4ecb78;
-  }
+ol li {
+  margin: 10px 0;
+  background-image: linear-gradient(to right, #4ecb78, #37b08d);
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
 
   ol li:first-child {
     margin-top: 4px;
@@ -214,6 +219,8 @@ footer {
 </style>
 
 {% include readme.html %}
+
+<h2>Cómo funciona desde github hasta la web?</h2>
 
 <div class="image-container">
    <img src="{{ site.baseurl }}/assets/images/ideario_how_to.png" alt="Cómo funciona?">
