@@ -27,11 +27,10 @@ jobs:
       uses: 8398a7/action-slack@v3
       env:
         APP_NAME: ${{ secrets.APP_NAME }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       with:
         status: ${{ job.status }}
-        text: "A new Pull Request was created for ${{ env.APP_NAME }}: ${{ steps.get-idea-url.outputs.idea_url }}"
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        text: "A new Pull Request was created for ${{ env.APP_NAME }}: ${{ steps.get-idea-url.outputs.idea_url }}" 
 
     - name: Post a tweet
       if: steps.get-idea-url.outputs.idea_url != ''
