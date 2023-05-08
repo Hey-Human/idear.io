@@ -1,10 +1,10 @@
 readme: /README.md
 repository: deptagency-dar/ideario
 title: "Ideario | Innovación y Talento"
-description: "Descubre idear.io, la plataforma de innovación y talento"
+description: "Descubre ideario, la plataforma de innovación y talento"
 url: "https://deptagency-dar.github.io/ideario"
 # user config
-app_name: "idear.io"
-email: severinidiegoignacio@gmail.com
+app_name: "ideario"
+email: diego.severini@deptagency.com
 plugins:
   - jekyll-seo-tag

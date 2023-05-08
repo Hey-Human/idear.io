@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "{{ site.app_name }}"
+title: Ideario
 ---
 
 <style>
@@ -244,7 +244,6 @@ footer {
     <p>&copy; {{ 'now' | date: "%Y" }} Hey, Human! | Todos los derechos reservados.</p>
     <p class="footer-item"><a href="https://github.com/{{ site.repository }}"><i class="fab fa-github"></i> {{ site.app_name }} Repository</a></p>
     <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:{{ site.email }}">Mail me!</a></p>
-    <p class="footer-item"><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
-    <p class="footer-item"><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
+    <p class="footer-item"><a href="https://github.com/deptagency-dar">🏠 deptagency dar home</a></p>
   </div>
 </footer>
