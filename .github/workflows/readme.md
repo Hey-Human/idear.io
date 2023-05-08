@@ -1,6 +1,6 @@
-# GitHub Workflows for Ideario Repository
+# GitHub Workflows for your Repository
 
-This directory contains the GitHub workflows for the Ideario repository. The workflows automate various tasks such as notifying Slack on PR creation, building and deploying Jekyll sites, and managing GitHub Pages dependencies.
+This directory contains the GitHub workflows for the your repository. The workflows automate various tasks such as notifying Slack on PR creation, building and deploying Jekyll sites, and managing GitHub Pages dependencies.
 
 ## Workflows
 
