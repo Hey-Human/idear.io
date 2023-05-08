@@ -3,5 +3,8 @@ repository: Hey-Human/idear.io
 title: "Idear.io | Innovación y Talento"
 description: "Descubre idear.io, la plataforma de innovación y talento"
 url: "https://hey-human.github.io/idear.io"
+# user config
+app_name: "idear.io"
+email: severinidiegoignacio@gmail.com
 plugins:
   - jekyll-seo-tag

@@ -16,25 +16,31 @@ jobs:
 
     - name: Get new idea URL
       id: get-idea-url
+      env: 
+        SITE_URL: ${{ secrets.SITE_URL }}      
       run: |
-        chmod +x .github/workflows/get-new-file-url-modified.sh
-        IDEA_URL=$(./.github/workflows/get-new-file-url-modified.sh)
+        chmod +x .github/workflows/get-new-file-url.sh
+        IDEA_URL=$(./.github/workflows/get-new-file-url.sh)
         echo "idea_url=$IDEA_URL" >> $GITHUB_ENV
 
     - name: Send message to Slack
       if: steps.get-idea-url.outputs.idea_url != ''
       uses: 8398a7/action-slack@v3
+      env:
+        APP_NAME: ${{ secrets.APP_NAME }}
       with:
         status: ${{ job.status }}
-        text: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
+        text: "A new idea was added to ${{ env.APP_NAME }}: ${{ steps.get-idea-url.outputs.idea_url }}"
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     - name: Post a tweet
       if: steps.get-idea-url.outputs.idea_url != ''
       uses: ethomson/send-tweet-action@v1
+      env:
+        APP_NAME: ${{ secrets.APP_NAME }}
       with:
-        status: "A new idea was added to Ideario: ${{ steps.get-idea-url.outputs.idea_url }}"
+        status: "A new idea was added to ${{ env.APP_NAME }}: ${{ steps.get-idea-url.outputs.idea_url }}"
         consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
         consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
         access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}

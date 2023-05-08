@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ideario
+title: "{{ site.app_name }}"
 ---
 
 <style>
@@ -232,19 +232,18 @@ footer {
     {% if file.path contains 'ideas/' and file.path contains '.md' %}
       <li>
         <a href="{{ site.baseurl }}{{ file.path | replace: '.md', '.html' }}">{{ file.path | split: '/' | last | replace: '.md', '' }}</a>
-        <a href="https://twitter.com/intent/tweet?url=https://hey-human.github.io/idear.io{{ file.path | replace: '.md', '.html' }}&text={{ file.path | split: '/' | last | replace: '.md', '' }}%20on%20https://hey-human.github.io/idear.io/" target="_blank" rel="noopener" class="twitter-share-button"><i class="fab fa-twitter"></i> Share with Twitter</a>
+        <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ file.path | replace: '.md', '.html' }}&text={{ file.path | split: '/' | last | replace: '.md', '' }}%20on%20{{ site.url }}/" target="_blank" rel="noopener" class="twitter-share-button"><i class="fab fa-twitter"></i> Share with Twitter</a>
       </li>
     {% endif %}
   {% endfor %}
 </ul>
 
 <!-- Footer -->
-<!-- Footer -->
 <footer>
   <div class="footer-content">
     <p>&copy; {{ 'now' | date: "%Y" }} Hey, Human! | Todos los derechos reservados.</p>
-    <p class="footer-item"><a href="https://github.com/Hey-Human/idear.io"><i class="fab fa-github"></i> Idear.io Repository</a></p>
-    <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:severinidiegoignacio@gmail.com">Mail me!</a></p>
+    <p class="footer-item"><a href="https://github.com/{{ site.repository }}"><i class="fab fa-github"></i> {{ site.app_name }} Repository</a></p>
+    <p class="footer-item"><i class="fas fa-envelope"></i> <a href="mailto:{{ site.email }}">Mail me!</a></p>
     <p class="footer-item"><a href="https://github.com/Hey-Human"><i class="fab fa-github"></i> Hey, Human!</a></p>
     <p class="footer-item"><a href="https://hey-human.github.io/">🏠 Hey, Human! Home</a></p>
   </div>
