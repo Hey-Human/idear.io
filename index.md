@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "{{ site.app_name }}"
+title: idear.io
 ---
 
 <style>
