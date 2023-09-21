@@ -1,4 +1,5 @@
 # 💡Plan de idea💡
+Probando si aún funciona.
 Una aplicación con realidad virtual que podés explorar cada site de Dept.
 ## Completa cada item:
 
